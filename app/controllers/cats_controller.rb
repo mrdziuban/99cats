@@ -25,15 +25,22 @@ class CatsController < ApplicationController
   def edit
     @colors = ColorValidator::COLORS
     @cat = Cat.find(params[:id])
+    if @cat.user_id != @current_user.id
+      redirect_to cat_url(@cat.id)
+    end
   end
 
   def update
     cat = Cat.find(params[:id])
-    params[:cat].each do |key, value|
-      cat[key.to_sym] = value
+    if cat.user_id != @current_user.id
+      redirect_to cat_url(cat.id)
+    else
+      params[:cat].each do |key, value|
+        cat[key.to_sym] = value
+      end
+      cat.save
+      redirect_to cats_url
     end
-    cat.save
-    redirect_to cats_url
   end
 
   def destroy

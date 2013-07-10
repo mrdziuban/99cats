@@ -28,7 +28,7 @@
   <% end %>
 </ul>
 
-<%= link_to "Edit this cat", edit_cat_url %>
+<%= link_to "Edit this cat", edit_cat_url if @cat.user_id == @current_user.id %>
 <br>
 <%= link_to "Destroy this cat", @cat, method: :delete %>
 <br>
