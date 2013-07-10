@@ -3,9 +3,8 @@
 <ul>
   <% @cat.attributes.each do |attr| %>
     <% unless ["created_at","updated_at"].include?(attr[0])%>
-      <%= "#{attr[0].capitalize}: #{attr[1]}" %>
-      <%= "(Age: #{@cat.age})" if attr[0] == "birth_date" %>
-      <br>
+      <li><%= "#{attr[0].capitalize}: #{attr[1]}" %>
+      <%= "(Age: #{@cat.age})" if attr[0] == "birth_date" %></li>
     <% end %>
   <% end %>
 </ul>
@@ -14,8 +13,7 @@
 
 <ul>
   <% @cat.cat_rental_requests.sort_by { |crr| crr.begin_date }.each do |crr| %>
-    <%= "#{crr.begin_date} to #{crr.end_date}" %>
-    <br>
+    <li><%= "#{crr.begin_date} to #{crr.end_date}" %></li>
   <% end %>
 </ul>
 
