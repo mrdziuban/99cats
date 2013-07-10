@@ -35,5 +35,8 @@
   <input name="cat[birth_date]" id="cat_birth_date" type="date" value="<%= @cat.birth_date %>"></input>
   <br>
   <input type="hidden" name="_method" value="put">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
   <input type="submit" value="Build my cat!">
 </form>

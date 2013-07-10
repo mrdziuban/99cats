@@ -10,4 +10,7 @@
   <input name="session[password]" id="password" type="password">
   <br>
   <input type="submit" value="Submit">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
 </form>

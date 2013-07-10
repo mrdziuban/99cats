@@ -19,6 +19,9 @@
         <input type="submit" value="Approve" name="cat_rental_request[status]">
         <input type="submit" value="Deny" name="cat_rental_request[status]">
         <input type="hidden" name="_method" value="put">
+        <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
       </form>
       <% end %>
     </li>

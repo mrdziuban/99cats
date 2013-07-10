@@ -36,6 +36,9 @@
   value="<%=@cat.birth_date%>"></input>
   <br>
 
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
   <input type="submit" value="Build my cat!">
 
   <!--
