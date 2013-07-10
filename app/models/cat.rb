@@ -18,6 +18,7 @@ class Cat < ActiveRecord::Base
   validates :name, uniqueness: true
   validates_with ColorValidator
 
+  belongs_to :user
   has_many :cat_rental_requests, :dependent => :destroy
 
   def age

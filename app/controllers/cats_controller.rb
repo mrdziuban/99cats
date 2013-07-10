@@ -13,7 +13,7 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = Cat.new(params[:cat])
+    @cat = Cat.new(params[:cat], user_id: @current_user.id)
     @colors = ColorValidator::COLORS
     if @cat.save
       redirect_to cats_url
