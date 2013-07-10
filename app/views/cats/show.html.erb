@@ -1,0 +1,14 @@
+<h2><%= @cat.name %></h2>
+
+<ul>
+  <% @cat.attributes.each do |attr| %>
+    <% unless ["created_at","modified_at"].include?(attr[0])%>
+      <%= "#{attr[0].capitalize}: #{attr[1]}" %>
+      <br>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Edit this cat", edit_cat_url %>
+<br>
+<%= link_to "All cats", cats_url %>
