@@ -14,4 +14,8 @@ class Cat < ActiveRecord::Base
   validates :birth_date, :color, :name, :sex, presence: true
   validates :name, uniqueness: true
   validates_with ColorValidator
+
+  def age
+    ((Date.parse(Time.now.to_s) - birth_date)/365).to_f.floor
+  end
 end
