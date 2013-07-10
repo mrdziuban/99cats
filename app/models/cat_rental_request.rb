@@ -27,4 +27,8 @@ class CatRentalRequest < ActiveRecord::Base
       end
     end
   end
+
+  def deny
+    status = "denied"
+  end
 end
