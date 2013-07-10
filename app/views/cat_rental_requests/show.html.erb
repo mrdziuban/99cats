@@ -6,8 +6,10 @@
   Status: <b><%= @crr.status %></b>
 </ul>
 
-<%= link_to "Edit this cat rental_request", edit_cat_cat_rental_request_url %>
+<%= link_to "Edit this cat rental request", edit_cat_rental_request_url %>
 <br>
-<%= link_to "All cat rental requests", cat_cat_rental_requests_url %>
+<%= link_to "Destroy this cat rental request", @crr, method: :delete %>
+<br>
+<%= link_to "All cat rental requests", cat_cat_rental_requests_url(cat_id: @cat.id) %>
 <br>
 <%= link_to "All cats", cats_url%>

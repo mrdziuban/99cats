@@ -4,8 +4,8 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find_by_id(params[:cat_id])
     @crr = CatRentalRequest.find(params[:id])
+    @cat = Cat.find(@crr.cat.id)
   end
 
   def new
@@ -35,5 +35,11 @@ class CatRentalRequestsController < ApplicationController
     end
     crr.save
     redirect_to cat_cat_rental_requests_url
+  end
+
+  def destroy
+    cat_id = CatRentalRequest.find(params[:id]).cat_id
+    CatRentalRequest.destroy(params[:id])
+    redirect_to cat_cat_rental_requests_url(cat_id)
   end
 end
