@@ -57,6 +57,7 @@ CatsProject::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   resources :cats do
-    resources :cat_rental_requests
+    resources :cat_rental_requests, :only => [:new, :index]
   end
+  resources :cat_rental_requests, :except => [:new, :index]
 end

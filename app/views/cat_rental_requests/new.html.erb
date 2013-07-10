@@ -1,5 +1,5 @@
 <h2>Rental request form for <%= @cat.name %>!</h2>
-<form action="<%= "cat/#{@cat.id}/cat_rental_requests" %>" method="post">
+<form action="<%= "/cat_rental_requests" %>" method="post">
   <label for="begin_date">Begin date: </label>
   <input name="cat_rental_request[begin_date]"
     id="cat_rental_request_begin_date" type="date"></input>
@@ -10,5 +10,6 @@
     id="cat_rental_request_end_date" type="date"></input>
   <br>
 
+  <input type="hidden" name="cat_rental_request[cat_id]" value="<%= @cat.id %>">
   <input type="submit" value="Send my request">
 </form>

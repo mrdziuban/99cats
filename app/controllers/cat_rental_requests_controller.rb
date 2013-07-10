@@ -14,7 +14,7 @@ class CatRentalRequestsController < ApplicationController
 
   def create
     CatRentalRequest.create(params[:cat_rental_request])
-    redirect_to cat_cat_rental_requests_url
+    redirect_to cat_cat_rental_requests_url(params[:cat_rental_request][:cat_id])
   end
 
   def edit
