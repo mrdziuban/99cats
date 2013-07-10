@@ -9,11 +9,17 @@ class CatsController < ApplicationController
 
   def new
     @colors = ColorValidator::COLORS
+    @cat = Cat.new
   end
 
   def create
-    Cat.create(params[:cat])
-    redirect_to cats_url
+    @cat = Cat.new(params[:cat])
+    @colors = ColorValidator::COLORS
+    if @cat.save
+      redirect_to cats_url
+    else
+      render :new
+    end
   end
 
   def edit
