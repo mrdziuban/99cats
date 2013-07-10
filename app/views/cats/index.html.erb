@@ -2,7 +2,7 @@
 
 <ul>
   <% @cats.each do |cat| %>
-    <li><%= cat.inspect %></li>
+    <li><%= link_to cat.name, "cats/#{cat.id.to_s}" %></li>
   <% end %>
 </ul>
 
