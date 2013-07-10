@@ -7,4 +7,6 @@ end
 class CatRentalRequest < ActiveRecord::Base
   attr_accessible :cat_id, :begin_date, :end_date
   validates_with DateValidator
+
+  belongs_to :cat
 end
