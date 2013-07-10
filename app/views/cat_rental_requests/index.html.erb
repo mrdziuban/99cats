@@ -3,7 +3,7 @@
 <ul>
   <% @crrs.each do |crr| %>
     <li><%= link_to "#{crr.begin_date} to #{crr.end_date} (#{crr.status})",
-       "cat_rental_requests/#{crr.id}" %></li>
+       "/cat_rental_requests/#{crr.id}" %></li>
   <% end %>
 </ul>
 
