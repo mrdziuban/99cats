@@ -10,6 +10,15 @@
   <% end %>
 </ul>
 
+<h3>Rental Requests</h3>
+
+<ul>
+  <% @cat.cat_rental_requests.sort_by { |crr| crr.begin_date }.each do |crr| %>
+    <%= "#{crr.begin_date} to #{crr.end_date}" %>
+    <br>
+  <% end %>
+</ul>
+
 <%= link_to "Edit this cat", edit_cat_url %>
 <br>
 <%= link_to "All cats", cats_url %>
