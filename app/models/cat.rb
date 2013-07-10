@@ -18,7 +18,7 @@ class Cat < ActiveRecord::Base
   validates :name, uniqueness: true
   validates_with ColorValidator
 
-  has_many :cat_rental_requests
+  has_many :cat_rental_requests, :dependent => :destroy
 
   def age
     ((Date.parse(Time.now.to_s) - birth_date)/365).to_f.floor
