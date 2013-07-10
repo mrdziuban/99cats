@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710131513) do
+ActiveRecord::Schema.define(:version => 20130710135006) do
 
   create_table "cats", :force => true do |t|
-    t.date   "birth_date"
-    t.string "color"
-    t.string "name"
-    t.string "sex"
+    t.date     "birth_date"
+    t.string   "color"
+    t.string   "name"
+    t.string   "sex"
+    t.datetime "created_at"
+    t.datetime "modified_at"
   end
 
 end
