@@ -16,8 +16,13 @@
     <li><%= "#{crr.begin_date} to #{crr.end_date}" %>
       <% if crr.status != "approved" %>
       <form action="/cat_rental_requests/<%= crr.id %>" method="post">
-        <input type="submit" value="Approve" name="cat_rental_request[status]">
-        <input type="submit" value="Deny" name="cat_rental_request[status]">
+        <% if @cat.user_id == @current_user.id %>
+          <input type="submit" value="Approve"
+                 name="cat_rental_request[status]">
+        <% end %>
+        <% if @cat.user_id == @current_user.id %>
+          <input type="submit" value="Deny" name="cat_rental_request[status]">
+        <% end %>
         <input type="hidden" name="_method" value="put">
         <input type="hidden"
                name="authenticity_token"

@@ -26,23 +26,31 @@ class CatRentalRequestsController < ApplicationController
   def edit
     @cat = Cat.find(params[:cat_id])
     @crr = CatRentalRequest.find(params[:id])
+    if @crr.cat.user_id != @current_user.id
+      redirect_to cat_url(crr.cat_id)
+    end
   end
 
   def update
     crr = CatRentalRequest.find(params[:id])
-    params[:cat_rental_request].each do |key, value|
-      if key == "status"
-        if value == "Approve"
-          crr[key.to_sym] = "approved"
-        elsif value == "Deny"
-          crr[key.to_sym] = "denied"
+
+    if crr.cat.user_id != @current_user.id
+      redirect_to cat_url(crr.cat_id)
+    else
+      params[:cat_rental_request].each do |key, value|
+        if key == "status"
+          if value == "Approve"
+            crr[key.to_sym] = "approved"
+          elsif value == "Deny"
+            crr[key.to_sym] = "denied"
+          end
+        else
+          crr[key.to_sym] = value
         end
-      else
-        crr[key.to_sym] = value
       end
+      crr.save
+      redirect_to cat_cat_rental_requests_url(crr.cat_id)
     end
-    crr.save
-    redirect_to cat_cat_rental_requests_url(crr.cat_id)
   end
 
   def destroy
