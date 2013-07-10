@@ -60,4 +60,6 @@ CatsProject::Application.routes.draw do
     resources :cat_rental_requests, :only => [:new, :index]
   end
   resources :cat_rental_requests, :except => [:new, :index]
+
+  resources :users, :only => [:new, :create]
 end
