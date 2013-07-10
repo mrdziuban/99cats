@@ -4,6 +4,7 @@
   <% @cat.attributes.each do |attr| %>
     <% unless ["created_at","updated_at"].include?(attr[0])%>
       <%= "#{attr[0].capitalize}: #{attr[1]}" %>
+      <%= "(Age: #{@cat.age})" if attr[0] == "birth_date" %>
       <br>
     <% end %>
   <% end %>
