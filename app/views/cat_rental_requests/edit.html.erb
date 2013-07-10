@@ -1,0 +1,16 @@
+<h2>Edit cat rental request for <%= @cat.name %></h2>
+
+<form action="<%= "cat/#{@cat.id}/cat_rental_requests" %>" method="post">
+  <label for="begin_date">Begin date: </label>
+  <input name="cat_rental_request[begin_date]"
+    id="cat_rental_request_begin_date" type="date" value="<%=@crr.begin_date%>"></input>
+  <br>
+
+  <label for="end_date">End date: </label>
+  <input name="cat_rental_request[end_date]"
+    id="cat_rental_request_end_date" type="date" value="<%=@crr.end_date%>"></input>
+  <br>
+
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Send my request">
+</form>
