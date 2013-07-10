@@ -13,8 +13,14 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def create
-    CatRentalRequest.create(params[:cat_rental_request])
-    redirect_to cat_cat_rental_requests_url(params[:cat_rental_request][:cat_id])
+    crr = CatRentalRequest.create(params[:cat_rental_request])
+    if crr.errors.messages.empty? # no problems
+      redirect_to cat_cat_rental_requests_url(params[:cat_rental_request][:cat_id])
+    else # error with submission
+      @error = crr.errors.messages[:begin_date]
+      redirect_to new_cat_cat_rental_request_url(cat_id: params[:cat_rental_request][:cat_id],
+                                                  error: @error)
+    end
   end
 
   def edit
