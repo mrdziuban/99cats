@@ -16,5 +16,7 @@ class CatsController < ApplicationController
   end
 
   def edit
+    @colors = ColorValidator::COLORS
+    @cat = Cat.find(params[:id])
   end
 end
