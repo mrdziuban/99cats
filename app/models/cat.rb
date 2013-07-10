@@ -13,7 +13,7 @@ class ColorValidator < ActiveModel::Validator
 end
 
 class Cat < ActiveRecord::Base
-  attr_accessible :birth_date, :color, :name, :sex
+  attr_accessible :birth_date, :color, :name, :sex, :user_id
   validates :birth_date, :color, :name, :sex, presence: true
   validates :name, uniqueness: true
   validates_with ColorValidator
