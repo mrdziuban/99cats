@@ -1,0 +1,13 @@
+<h2>Rental Request for <%= @cat.name %></h2>
+
+<ul>
+  Time period: <%= "#{@crr.begin_date} to #{@crr.end_date}" %>
+  <br>
+  Status: <b><%= @crr.status %></b>
+</ul>
+
+<%= link_to "Edit this cat rental_request", edit_cat_cat_rental_request_url %>
+<br>
+<%= link_to "All cat rental requests", cat_cat_rental_requests_url %>
+<br>
+<%= link_to "All cats", cats_url%>
