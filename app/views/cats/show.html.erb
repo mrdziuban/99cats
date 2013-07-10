@@ -13,7 +13,15 @@
 
 <ul>
   <% @cat.cat_rental_requests.sort_by { |crr| crr.begin_date }.each do |crr| %>
-    <li><%= "#{crr.begin_date} to #{crr.end_date}" %></li>
+    <li><%= "#{crr.begin_date} to #{crr.end_date}" %>
+      <% if crr.status != "approved" %>
+      <form action="/cat_rental_requests/<%= crr.id %>" method="post">
+        <input type="submit" value="Approve" name="cat_rental_request[status]">
+        <input type="submit" value="Deny" name="cat_rental_request[status]">
+        <input type="hidden" name="_method" value="put">
+      </form>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 

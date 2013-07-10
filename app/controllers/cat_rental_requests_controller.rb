@@ -31,10 +31,18 @@ class CatRentalRequestsController < ApplicationController
   def update
     crr = CatRentalRequest.find(params[:id])
     params[:cat_rental_request].each do |key, value|
-      crr[key.to_sym] = value
+      if key == "status"
+        if value == "Approve"
+          crr[key.to_sym] = "approved"
+        elsif value == "Deny"
+          crr[key.to_sym] = "denied"
+        end
+      else
+        crr[key.to_sym] = value
+      end
     end
     crr.save
-    redirect_to cat_cat_rental_requests_url
+    redirect_to cat_cat_rental_requests_url(crr.cat_id)
   end
 
   def destroy
