@@ -4,7 +4,7 @@ class ColorValidator < ActiveModel::Validator
   def validate(record)
 
     unless COLORS.include?(record.color)
-      record.errors[:color] << "Color must be in #{colors}"
+      record.errors[:color] << "Color must be in #{COLORS}"
     end
   end
 end
