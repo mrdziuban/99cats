@@ -1,10 +1,13 @@
 class ColorValidator < ActiveModel::Validator
   COLORS = ["blue", "orange", "green", "brown", "black", "white"]
+  SEXES = ["m", "f"]
 
   def validate(record)
-
     unless COLORS.include?(record.color)
       record.errors[:color] << "Color must be in #{COLORS}"
+    end
+    unless SEXES.include?(record.sex)
+      record.errors[:sex] << "Sex must be male or female"
     end
   end
 end
