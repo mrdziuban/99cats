@@ -1,5 +1,5 @@
 <h2>Edit cat form!</h2>
-<form action="/cats" method="post">
+<form action="/cats/<%=@cat.id %>" method="post">
   <!-- label's `for` attribute connects with the input's `id` attribute-->
   <label for="cat_name">Name: </label>
   <!-- input name `cat[name]` means that Rails will nest the `name` attribute
@@ -34,12 +34,6 @@
   <!-- click on the date will launch a date picker -->
   <input name="cat[birth_date]" id="cat_birth_date" type="date" value="<%= @cat.birth_date %>"></input>
   <br>
-
+  <input type="hidden" name="_method" value="put">
   <input type="submit" value="Build my cat!">
-
-  <!--
-    Other uncovered input types:
-    hidden field
-    check box
-    -->
 </form>
