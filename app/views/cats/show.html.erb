@@ -2,7 +2,7 @@
 
 <ul>
   <% @cat.attributes.each do |attr| %>
-    <% unless ["created_at","modified_at"].include?(attr[0])%>
+    <% unless ["created_at","updated_at"].include?(attr[0])%>
       <%= "#{attr[0].capitalize}: #{attr[1]}" %>
       <br>
     <% end %>
