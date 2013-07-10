@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710150052) do
+ActiveRecord::Schema.define(:version => 20130710151813) do
 
   create_table "cat_rental_requests", :force => true do |t|
     t.integer  "cat_id"
     t.date     "begin_date"
     t.date     "end_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "status",     :default => "undecided"
   end
 
   add_index "cat_rental_requests", ["cat_id"], :name => "index_cat_rental_requests_on_cat_id"
