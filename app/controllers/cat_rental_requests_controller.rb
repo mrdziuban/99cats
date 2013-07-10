@@ -23,6 +23,11 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def update
-
+    crr = CatRentalRequest.find(params[:id])
+    params[:cat_rental_request].each do |key, value|
+      crr[key.to_sym] = value
+    end
+    crr.save
+    redirect_to cat_cat_rental_requests_url
   end
 end
